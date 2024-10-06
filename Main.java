@@ -1,14 +1,22 @@
 import SortingAlgorithm.InsertionSort;
+import Stack.Stack;
+import Stack.StringReverser;
 
 import java.util.Arrays;
 
 public class Main {
 
     public static void main(String [] args){
-        int [ ] numbers = {3,4,5,6,7,3};
-                var sorter = new InsertionSort();
-        sorter.sort(numbers);
-        System.out.println(Arrays.toString(numbers));
 
+       var stack = new Stack();
+       stack.push(50);
+        stack.push(50);
+        stack.push(50);
+        stack.push(50);
+        stack.push(50);
+        stack.push(50);
+        stack.push(50);
+        stack.push(50);
+        System.out.println(stack.toString());
     }
 }
