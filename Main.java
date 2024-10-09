@@ -6,17 +6,11 @@ import java.util.Arrays;
 
 public class Main {
 
-    public static void main(String [] args){
-
-       var stack = new Stack();
-       stack.push(50);
-        stack.push(50);
-        stack.push(50);
-        stack.push(50);
-        stack.push(50);
-        stack.push(50);
-        stack.push(50);
-        stack.push(50);
-        System.out.println(stack.toString());
+    public static void main(String[] args) {
+        int i;
+        for (i = 9; i >= 0; i--) {
+            System.out.println(i);
+        }
+        System.out.println(i);
     }
 }
