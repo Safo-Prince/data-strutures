@@ -19,7 +19,7 @@ public class Heaps {
         // item(root) < children
         var index = 0;
         while ( index <= size && !isValidParent(index) ){
-            var largerChildIndex = largerChildIndeint(index);
+            var largerChildIndex = largerChildIndex(index);
             swap(index,largerChildIndex);
             index = largerChildIndex; // resetting our index
 
@@ -29,7 +29,7 @@ public class Heaps {
     public boolean isEmpty(){
         return size == 0;
     }
-    private int largerChildIndeint (int index){
+    private int largerChildIndex(int index){
        return leftChildIndex(index) > rightChildIndex(index) ? leftChildIndex(index): rightChildIndex(index);
     }
     private boolean isValidParent(int index){

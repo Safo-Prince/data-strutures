@@ -1,46 +1,70 @@
 package LinkedList;
-
-import java.util.ArrayDeque;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
+import java.util.LinkedList;
 
 public class Demo{
 
-    private int count;
-    private int [] items;
+    private class Entry{
+        private int key;
+        private String value;
 
-    public void add(int item){
-        if(isFull())
-            throw new IllegalStateException();
+        public  Entry(int key,String value){
+            this.key = key;
+            this.value = value;
 
-       int i = shiftItemsToInsert(item);
-        items[1] = item;
-        count++;
-    }
-
-    public int remove(){
-        if(isEmpty())
-            throw new IllegalStateException();
-
-        return items[--count];
-    }
-
-    public int shiftItemsToInsert(int item){
-        int i = 0;
-        for(i = count-1; i>=0; i--){
-            if(items[i] > item)
-                items[i+1] = item;
-            else
-                break;
         }
 
-        return i+1 ;
     }
-public boolean isEmpty(){
-        return count == 0;
-}
-    public boolean isFull(){
-        return count == items.length;
+    LinkedList<Entry>[] entries = new LinkedList[5];
+
+    private int hash(int key){
+        return key % entries.length;
     }
 
-}
+    public void put(int key,String value){
+        var index = hash(key);
+        if(entries[index] == null)
+            entries[index] = new LinkedList<>();
+
+      if(entries[index] != null){
+          for(var entry : entries[index])
+              if(entry.key == key)
+                  entry.value = value;
+                    return;
+
+      }
+
+      entries[index].addLast(new Entry(key,value));
+
+    }
+
+    public String get(int key){
+        var index = hash(key);
+
+        if(entries[index] == null)
+            return null;
+
+        for(var entry : entries[index]){
+            if(entry.key == key)
+                return entry.value;
+
+        }
+        return  null;
+    }
+
+    public void remove(int key){
+        var index = hash(key);
+
+        if(entries[index] == null)
+            throw new IllegalStateException();
+
+        for(var entry : entries[index]){
+            if(entry.key == key)
+                entries[index].remove(entry);
+            return;
+
+
+        }
+
+    }
+    }

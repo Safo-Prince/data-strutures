@@ -1,16 +1,17 @@
-import SortingAlgorithm.InsertionSort;
-import Stack.Stack;
-import Stack.StringReverser;
-
-import java.util.Arrays;
+import HashMaps.HashTable;
+import LinkedList.Demo;
 
 public class Main {
 
     public static void main(String[] args) {
-        int i;
-        for (i = 9; i >= 0; i--) {
-            System.out.println(i);
-        }
-        System.out.println(i);
+   var table = new HashTable();
+   table.put(6,"A");
+   table.put(8,"B");
+   table.put(11,"C");
+   table.put(6,"A+");
+
+
+        System.out.println(table.get(11));
+
     }
 }
